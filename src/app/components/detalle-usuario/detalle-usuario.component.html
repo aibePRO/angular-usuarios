@@ -1,0 +1,14 @@
+<div ></div>
+<mat-list role="list" *ngIf="usuario">
+    <mat-list-item>{{ usuario.id }}</mat-list-item>
+    <mat-list-item>{{ usuario.name }}</mat-list-item>
+    <mat-list-item>{{ usuario.email }}</mat-list-item>
+</mat-list>
+
+<button mat-stroked-button (click)="borrarUsuario()">
+    <mat-icon aria-hidden="false">delete_forever</mat-icon> Borrar usuario
+</button>
+<button mat-stroked-button (click)="volverListado()">
+    <mat-icon aria-hidden="false">arrow_back_ios</mat-icon>
+    Volver a listado
+</button>

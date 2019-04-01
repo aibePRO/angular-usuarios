@@ -1,0 +1,5 @@
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let usuario of usuarios$ | async">
+    <a [routerLink]="['/usuarios', usuario.id]">{{ usuario.name }} <{{ usuario.email | lowercase }}></a>
+  </mat-list-item>
+</mat-list>
