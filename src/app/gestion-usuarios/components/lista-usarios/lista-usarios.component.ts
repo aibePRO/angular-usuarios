@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuariosService } from 'src/app/services/usuarios.service';
+import { UsuariosService } from 'src/app/gestion-usuarios/services/usuarios.service';
 import { Observable, Subscription } from 'rxjs';
 
 @Component({

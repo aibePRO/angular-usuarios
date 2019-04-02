@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, Subject } from 'rxjs';
-import { reject } from 'q';
+import { PersistService } from 'src/app/servicios-core/services/persist.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +20,14 @@ export class UsuariosService {
     this._usuarios = value;
   }
 
-  constructor(private httpSrv: HttpClient) {
+  constructor(
+    private httpSrv: HttpClient,
+    private persistSrv: PersistService
+  ) {
     this.httpSrv.get<any[]>('https://jsonplaceholder.typicode.com/users')
       .subscribe(users => {
         this._usuarios = users;
+        this.persistSrv.saveData('users', this.usuarios);
         this.obtenerUsuarios(); //Push
       })
   }
